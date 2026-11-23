@@ -1,0 +1,59 @@
+name: Release Extension
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare clean extension directory
+        run: |
+          mkdir -p build dist
+          cp manifest.json background.js content.js styles.css popup.html popup.js build/
+
+      - name: Build Chrome ZIP
+        run: |
+          cd build
+          zip -r ../dist/cashback-optimizer-preisvergleich-chrome.zip .
+
+      - name: Setup Node.js (for web-ext)
+        if: ${{ secrets.AMO_JWT_ISSUER != '' && secrets.AMO_JWT_SECRET != '' }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Sign Firefox XPI via AMO (Unlisted)
+        if: ${{ secrets.AMO_JWT_ISSUER != '' && secrets.AMO_JWT_SECRET != '' }}
+        run: |
+          npx --yes web-ext sign \
+            --source-dir=build \
+            --artifacts-dir=dist \
+            --channel=unlisted \
+            --api-key="${{ secrets.AMO_JWT_ISSUER }}" \
+            --api-secret="${{ secrets.AMO_JWT_SECRET }}"
+
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/cashback-optimizer-preisvergleich-chrome.zip
+            dist/*.xpi
+          generate_release_notes: true
+
+      - name: Upload build artifacts (manual runs)
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: extension-packages
+          path: dist/*

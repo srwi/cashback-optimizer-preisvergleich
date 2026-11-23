@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Cashback Optimizer für Preisvergleiche",
+  "version": "1.0.0",
+  "description": "Zeigt Cashback-, Rabatt- und Gutscheinmöglichkeiten von cashback-optimizer.de direkt auf Idealo, Geizhals, billiger.de und guenstiger.de an.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://cashback-optimizer.de/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.idealo.de/preisvergleich/OffersOfProduct/*",
+        "https://geizhals.de/*",
+        "https://geizhals.at/*",
+        "https://gh.de/*",
+        "https://www.billiger.de/*",
+        "https://www.guenstiger.de/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Cashback Optimizer für Preisvergleiche"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cashback-optimizer-preisvergleich@srwi.github.io",
+      "strict_min_version": "109.0"
+    }
+  }
+}

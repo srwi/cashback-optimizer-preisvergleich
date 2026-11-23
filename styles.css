@@ -1,0 +1,210 @@
+.productOffers-listItemOfferCta {
+  margin-bottom: 0 !important;
+}
+
+.productOffers-listItemOfferCta .productOffers-listItemOfferCtaLeadout.button {
+  margin-bottom: 4px !important;
+}
+
+.cbo-shop-wrap {
+  position: relative;
+  z-index: 6;
+  display: block;
+  width: 100%;
+  margin-top: 0;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.offer__clickout .offer_bt {
+  margin-bottom: 2px !important;
+}
+
+.cbo-shop-wrap--geizhals {
+  margin: 0 0 4px 0;
+  text-align: right;
+}
+
+.cbo-shop-wrap--geizhals .cbo-shop-link {
+  flex-direction: row-reverse;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.cbo-shop-wrap--billiger {
+  position: relative;
+  z-index: 20;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.cbo-shop-wrap--guenstiger {
+  position: relative;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* Dark mode (e.g. Geizhals dark mode) */
+html.cbo-dark .cbo-shop-link-main {
+  color: #5cd68d;
+}
+
+html.cbo-dark .cbo-shop-link:hover .cbo-shop-link-main {
+  color: #86efac;
+}
+
+html.cbo-dark .cbo-shop-link-sub,
+html.cbo-dark .cbo-shop-empty {
+  color: #9ca3af;
+}
+
+html.cbo-dark .cbo-tooltip {
+  background: #1f2937;
+  color: #f3f4f6;
+  border-color: #374151;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+html.cbo-dark .cbo-tooltip-title {
+  border-bottom-color: #374151;
+}
+
+html.cbo-dark .cbo-tooltip-provider {
+  color: #e5e7eb;
+}
+
+html.cbo-dark .cbo-tooltip-value {
+  color: #ffffff;
+}
+
+html.cbo-dark .cbo-tooltip-hint {
+  color: #9ca3af;
+}
+
+.cbo-shop-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cbo-shop-link-main {
+  font-size: 13px;
+  font-weight: 700;
+  color: #137333;
+  text-decoration: underline;
+}
+
+.cbo-shop-link:hover .cbo-shop-link-main {
+  color: #0d5224;
+}
+
+.cbo-shop-link-sub {
+  font-size: 11px;
+  color: #5f6368;
+}
+
+.cbo-shop-empty {
+  display: inline-block;
+  font-size: 11px;
+  color: #70757a;
+}
+
+.cbo-tooltip {
+  position: fixed;
+  z-index: 999999;
+  min-width: 260px;
+  max-width: 360px;
+  max-height: 340px;
+  overflow-y: auto;
+  background: #ffffff;
+  color: #202124;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+  padding: 10px 12px;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.cbo-tooltip-title {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.cbo-tooltip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cbo-tooltip-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cbo-tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cbo-tooltip-provider {
+  flex: 1 1 auto;
+  color: #3c4043;
+}
+
+.cbo-tooltip-value {
+  font-weight: 700;
+  color: #202124;
+  white-space: nowrap;
+}
+
+.cbo-tooltip-hint {
+  font-size: 11px;
+  color: #5f6368;
+  padding-left: 2px;
+}
+
+.cbo-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.cbo-badge--cashback {
+  background-color: #e6f4ea;
+  color: #137333;
+  border: 1px solid #ceead6;
+}
+
+.cbo-badge--voucher {
+  background-color: #fef7e0;
+  color: #b06000;
+  border: 1px solid #feefc3;
+}
+
+.cbo-badge--discount {
+  background-color: #e8f0fe;
+  color: #1967d2;
+  border: 1px solid #d2e3fc;
+}
+
+.cbo-badge--other {
+  background-color: #f1f3f4;
+  color: #3c4043;
+  border: 1px solid #dadce0;
+}

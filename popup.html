@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Cashback Optimizer für Preisvergleiche</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      width: 260px;
+      padding: 12px;
+      margin: 0;
+      font-size: 13px;
+      color: #202124;
+    }
+    h1 {
+      font-size: 14px;
+      margin: 0 0 8px 0;
+    }
+    .status {
+      background: #f8f9fa;
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+      padding: 8px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background: #1a73e8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cashback Optimizer</h1>
+  <div class="status" id="status">Lade Cache-Status…</div>
+  <button id="refreshBtn">Daten jetzt aktualisieren</button>
+  <script src="popup.js"></script>
+</body>
+</html>
