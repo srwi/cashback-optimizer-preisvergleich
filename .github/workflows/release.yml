@@ -27,20 +27,25 @@ jobs:
           zip -r ../dist/cashback-optimizer-preisvergleich-chrome.zip .
 
       - name: Setup Node.js (for web-ext)
-        if: ${{ secrets.AMO_JWT_ISSUER != '' && secrets.AMO_JWT_SECRET != '' }}
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
       - name: Sign Firefox XPI via AMO (Unlisted)
-        if: ${{ secrets.AMO_JWT_ISSUER != '' && secrets.AMO_JWT_SECRET != '' }}
+        env:
+          AMO_JWT_ISSUER: ${{ secrets.AMO_JWT_ISSUER }}
+          AMO_JWT_SECRET: ${{ secrets.AMO_JWT_SECRET }}
         run: |
-          npx --yes web-ext sign \
-            --source-dir=build \
-            --artifacts-dir=dist \
-            --channel=unlisted \
-            --api-key="${{ secrets.AMO_JWT_ISSUER }}" \
-            --api-secret="${{ secrets.AMO_JWT_SECRET }}"
+          if [ -n "$AMO_JWT_ISSUER" ] && [ -n "$AMO_JWT_SECRET" ]; then
+            npx --yes web-ext sign \
+              --source-dir=build \
+              --artifacts-dir=dist \
+              --channel=unlisted \
+              --api-key="$AMO_JWT_ISSUER" \
+              --api-secret="$AMO_JWT_SECRET"
+          else
+            echo "AMO secrets not set, skipping Firefox XPI signing."
+          fi
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
