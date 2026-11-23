@@ -191,6 +191,23 @@ function showTooltip(anchorEl, record) {
 
   tooltip.appendChild(list);
 
+  const footer = document.createElement("div");
+  footer.className = "cbo-tooltip-footer";
+  footer.append("Daten von ");
+
+  const sourceLink = document.createElement("a");
+  sourceLink.href = "https://cashback-optimizer.de/";
+  sourceLink.target = "_blank";
+  sourceLink.rel = "noopener noreferrer";
+  sourceLink.textContent = "cashback-optimizer.de";
+  sourceLink.addEventListener("click", (e) => e.stopPropagation());
+
+  footer.appendChild(sourceLink);
+  footer.append(
+    " – falls du sparen konntest, unterstütze die Seite gerne mit einer Spende."
+  );
+  tooltip.appendChild(footer);
+
   tooltip.addEventListener("mouseenter", () => {
     if (hideTimeout) {
       clearTimeout(hideTimeout);

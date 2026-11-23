@@ -80,8 +80,17 @@ html.cbo-dark .cbo-tooltip-value {
   color: #ffffff;
 }
 
-html.cbo-dark .cbo-tooltip-hint {
+html.cbo-dark .cbo-tooltip-hint,
+html.cbo-dark .cbo-tooltip-footer {
   color: #9ca3af;
+}
+
+html.cbo-dark .cbo-tooltip-footer {
+  border-top-color: #374151;
+}
+
+html.cbo-dark .cbo-tooltip-footer a {
+  color: #5cd68d;
 }
 
 .cbo-shop-link {
@@ -174,6 +183,20 @@ html.cbo-dark .cbo-tooltip-hint {
   font-size: 11px;
   color: #5f6368;
   padding-left: 2px;
+}
+
+.cbo-tooltip-footer {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #e8eaed;
+  font-size: 11px;
+  color: #5f6368;
+  line-height: 1.35;
+}
+
+.cbo-tooltip-footer a {
+  color: #137333;
+  text-decoration: underline;
 }
 
 .cbo-badge {
